@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    def androidVersions = rootProject.ext.android
+    compileSdkVersion androidVersions.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.mindvalley"
+        minSdkVersion androidVersions.minSdkVersion
+        targetSdkVersion androidVersions.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            'src/main/res/layouts/views/common',
+                            'src/main/res/layouts/views/pinboard',
+                            'src/main/res/layouts/views/pindetails',
+                            'src/main/res/layouts/views/unsplash',
+                            'src/main/res/layouts',
+                            'src/main/res'
+                    ]
+        }
+    }
+}
+
+dependencies {
+    def commonDependencies = rootProject.ext.commonDependencies
+    def commonTestDependencies = rootProject.ext.commonTestDependencies
+
+    //Timber for logging
+    implementation commonDependencies.timber
+    //Android
+    implementation commonDependencies.supportDesign
+    implementation commonDependencies.supportAppCompatV7
+    implementation commonDependencies.constraintLayout
+    implementation commonDependencies.supportRecyclerView
+    implementation commonDependencies.supportCardView
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+
+    //Networking
+    implementation commonDependencies.okHttp
+    implementation commonDependencies.okHttpInterceptor
+
+    //GSON
+    implementation commonDependencies.gson
+
+    //butterknife
+    implementation commonDependencies.butterknife
+    kapt commonDependencies.butterknifeAnnotationProcessor
+//    kapt 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    //Unit testing
+    testImplementation commonTestDependencies.junit
+    testImplementation commonTestDependencies.assertj
+    testImplementation commonTestDependencies.mockito
+
+    //Instrumentation
+    androidTestImplementation commonTestDependencies.testRunner
+    androidTestImplementation commonTestDependencies.espresso
+    implementation project(path: ':ImageLoadingLibrary')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
+    jcenter()
+
+}

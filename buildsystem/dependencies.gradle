@@ -1,0 +1,58 @@
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+ext {
+
+    // Libraries
+    constraintLayout = '1.0.2'
+    supportLibrary = '27.1.0'
+    timber = '4.6.1'
+    okHttp = '3.10.0'
+    gson = '2.8.5'
+    butterknife = '8.8.1'
+    loopj = '1.4.9'
+
+    // Testing
+    junit = '4.12'
+    mockito = '2.15.0'
+    assertJ = '3.9.1'
+
+    // Instrumentation
+    testRunner = '1.0.2'
+    espresso = '3.0.2'
+    commonDependencies = [
+            supportDesign                 : "com.android.support:design:${supportLibrary}",
+            supportAppCompatV7            : "com.android.support:appcompat-v7:${supportLibrary}",
+            supportRecyclerView           : "com.android.support:recyclerview-v7:${supportLibrary}",
+            supportCardView               : "com.android.support:cardview-v7:${supportLibrary}",
+            constraintLayout              : "com.android.support.constraint:constraint-layout:${constraintLayout}",
+
+            timber                        : "com.jakewharton.timber:timber:${timber}",
+
+            okHttp                        : "com.squareup.okhttp3:okhttp:${okHttp}",
+            okHttpInterceptor             : "com.squareup.okhttp3:logging-interceptor:${okHttp}",
+            gson                          : "com.google.code.gson:gson:${gson}",
+
+            butterknife                   : "com.jakewharton:butterknife:${butterknife}",
+            butterknifeAnnotationProcessor: "com.jakewharton:butterknife-compiler:${butterknife}",
+
+
+            loopj                         : "com.loopj.android:android-async-http:${loopj}",
+
+
+    ]
+
+    commonTestDependencies = [
+            junit     : "junit:junit:${junit}",
+            assertj   : "org.assertj:assertj-core:${assertJ}",
+            mockito   : "org.mockito:mockito-core:${mockito}",
+
+            testRunner: "com.android.support.test:runner:${testRunner}",
+            espresso  : "com.android.support.test.espresso:espresso-core:${espresso}"
+    ]
+
+}
