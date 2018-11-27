@@ -1,6 +1,6 @@
 # Mindvalley Assessment Test
 
-# Task
+# Description
 
 Imagine you are on the Pinterest Android team and you are working with some colleagues on the pinboard (the scrolling wall of images), you split up the tasks among each other and your task is to create an image loading library that will be used to asynchronously download the images for the pins on the pinboard when they are needed.
 
@@ -24,9 +24,4 @@ Imagine you are on the Pinterest Android team and you are working with some coll
 # Architecture
 MVP(Model-View-Presenter)
 
-# Library Used
-1. butterknife
-2. gson
-3. loopj
-4. Custom Image load library
 
